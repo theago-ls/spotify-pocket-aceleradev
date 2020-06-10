@@ -1,8 +1,8 @@
 const initialState = {
-  email: "thiago@gmail.com",
+  email: "",
   errorMessage: "",
-  name: "Thiago",
-  status: "success",
+  name: "",
+  status: "",
   thumb: "",
 };
 

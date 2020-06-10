@@ -9,8 +9,11 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    // case typeName:
-    //     return { ...state, ...payload }
+    case SET_ACCESS:
+      return { ...state, ...payload };
+
+    case SET_LOGGED:
+      return { ...state, isLogged: payload };
 
     default:
       return state;
