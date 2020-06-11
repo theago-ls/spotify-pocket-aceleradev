@@ -1,7 +1,8 @@
 import React from "react";
+import { Route } from "react-router-dom";
 
 import { Playlists } from "../containers/index";
 
 export default function PlaylistsRoute() {
-  return <Playlists />;
+  return <Route exact path="/playlists" component={Playlists} />;
 }
