@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { RouteHeader } from "../components/index";
 
@@ -16,13 +16,14 @@ export default function Routes() {
     <Router>
       <RouteHeader />
       <Switch>
-        <LoginRoute />
-        <AuthorizeRoute />
-        <DashboardRoute />
-        <PlaylistsRoute />
-        <TracksRoute />
+        <Route exact path="/login" component={LoginRoute} />
+        <Route exact path="/authorize" component={AuthorizeRoute} />
 
-        <PrivateRoute />
+        <PrivateRoute>
+          <Route exact path="/dashboard" component={DashboardRoute} />
+          <Route exact path="/playlists" component={PlaylistsRoute} />
+          <Route exact path="/track" component={TracksRoute} />
+        </PrivateRoute>
       </Switch>
     </Router>
   );

@@ -1,6 +1,6 @@
-import { SET_ACCESS, SET_LOGGED } from "../actionTypes";
+import { SET_ACCESS, SET_LOGGED } from "../actionsTypes";
 
-export const setAcess = (payload) => ({
+export const setAccess = (payload) => ({
   type: SET_ACCESS,
   payload,
 });
