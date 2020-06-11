@@ -1,8 +1,9 @@
-import React from "react";
-import { Route } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
 import { Dashboard } from "../containers/index";
 
 export default function DashboardRoute() {
-  return <Route exact path="/dashboard" component={Dashboard} />;
+  useEffect(() => {}, []);
+
+  return <Dashboard />;
 }
