@@ -23,8 +23,13 @@
     padding: 0;
   }
 
+  & .back-button:hover {
+    cursor: pointer;
+  }
+
   &__title {
     font-size: 24px;
     font-weight: bold;
+    color: white;
   }
 }

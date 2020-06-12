@@ -1,3 +1,12 @@
+import {
+  SET_CATEGORIES,
+  SET_PLAYLISTS,
+  SET_TRACKS,
+  SET_PLAYING_ID,
+  SET_PLAYING_TRACK,
+  SET_PLAYER_STATUS,
+} from "../actionsTypes";
+
 const initialState = {
   categories: [],
   playlists: [],
@@ -11,8 +20,38 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
   switch (type) {
-    // case typeName:
-    //     return { ...state, ...payload }
+    case SET_CATEGORIES:
+      return { ...state, categories: payload };
+
+    case SET_PLAYLISTS:
+      return {
+        ...state,
+        playlists: payload,
+      };
+
+    case SET_TRACKS:
+      return {
+        ...state,
+        tracks: payload,
+      };
+
+    case SET_PLAYING_ID:
+      return {
+        ...state,
+        playingNowId: payload,
+      };
+
+    case SET_PLAYING_TRACK:
+      return {
+        ...state,
+        playingNowTrack: payload,
+      };
+
+    case SET_PLAYER_STATUS:
+      return {
+        ...state,
+        status: payload,
+      };
 
     default:
       return state;

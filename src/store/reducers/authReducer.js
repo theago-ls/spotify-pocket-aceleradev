@@ -1,3 +1,5 @@
+import { SET_ACCESS, SET_LOGGED } from "../actionsTypes";
+
 const initialState = {
   acessToken: "",
   errorMessage: "",

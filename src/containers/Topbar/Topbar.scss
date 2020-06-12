@@ -2,7 +2,7 @@
   backface-visibility: hidden;
   background-color: #060125;
   display: flex;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   left: 0;
   padding: 8px 0;
   position: fixed;
@@ -35,6 +35,8 @@
     }
 
     &__thumb {
+      display: flex;
+      justify-content: center;
       border-radius: 50px;
       border: 1px solid #5c5970;
       height: 35px;
