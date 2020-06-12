@@ -4,7 +4,7 @@ import {
   SET_TRACKS,
   SET_PLAYING_ID,
   SET_PLAYING_TRACK,
-  SET_PLAYER_STATUS,
+  SET_STATUS,
 } from "../actionsTypes";
 
 const initialState = {
@@ -47,7 +47,7 @@ export default (state = initialState, { type, payload }) => {
         playingNowTrack: payload,
       };
 
-    case SET_PLAYER_STATUS:
+    case SET_STATUS:
       return {
         ...state,
         status: payload,

@@ -6,7 +6,14 @@ import { Loading } from "../../components/index";
 
 import PlaylistItem from "./PlaylistItem";
 
-const Playlists = ({ data, categoryName, categoryId, isLoading, path }) => {
+const Playlists = ({
+  data,
+  categoryName,
+  categoryId,
+  isLoading,
+  path,
+  handlePlaylist,
+}) => {
   return (
     <div className="playlists" data-testid="playlists">
       {isLoading ? (
@@ -22,6 +29,7 @@ const Playlists = ({ data, categoryName, categoryId, isLoading, path }) => {
               description={playlist.description}
               categoryId={categoryId}
               path={playlist.tracks.href}
+              handlePlaylist={handlePlaylist}
             />
           ))}
         </div>

@@ -16,20 +16,20 @@ import TracksRoute from "./TracksRoute";
 import { PrivateRoute } from "../containers/index";
 
 import { setUser } from "../store/actions/userActions";
-import { setCategories, setPlaylists } from "../store/actions/contentActions";
+import {
+  setCategories,
+  setPlaylists,
+  setStatus,
+} from "../store/actions/contentActions";
 
 import { Switch } from "react-router-dom";
 
 export default function DashboardRoute({ match }) {
-  const [isLoading, setLoading] = useState(false);
-
   const dispatch = useDispatch();
 
   const history = useHistory();
 
-  const { accessToken, tokenType, isLogged } = useSelector(
-    (store) => store.authReducer
-  );
+  const { accessToken, tokenType } = useSelector((store) => store.authReducer);
 
   const userData = useSelector((store) => {
     return store.userReducer;
@@ -39,6 +39,7 @@ export default function DashboardRoute({ match }) {
 
   useEffect(() => {
     async function getUserInfo() {
+      dispatch(setStatus("requested"));
       const user = await obterUsuario(accessToken, tokenType);
 
       if (user) {
@@ -52,6 +53,7 @@ export default function DashboardRoute({ match }) {
           })
         );
       }
+      dispatch(setStatus("idle"));
     }
 
     getUserInfo();
@@ -59,27 +61,27 @@ export default function DashboardRoute({ match }) {
 
   useEffect(() => {
     async function getUserCategories() {
-      setLoading(true);
+      dispatch(setStatus("requested"));
       const listCategories = await obterCategorias(accessToken, tokenType);
 
       if (listCategories) {
         dispatch(setCategories(listCategories.categories.items));
       }
-      setLoading(false);
+      dispatch(setStatus("idle"));
     }
 
     getUserCategories();
   }, []);
 
   async function handleCategory(categoryId, url) {
-    setLoading(true);
+    dispatch(setStatus("requested"));
     const playlists = await obterPlaylists(accessToken, tokenType, url);
 
     if (playlists) {
       dispatch(setPlaylists(playlists.playlists.items));
       history.push(`${match.url}/${categoryId}`);
     }
-    setLoading(false);
+    dispatch(setStatus("idle"));
   }
 
   return (
@@ -90,7 +92,7 @@ export default function DashboardRoute({ match }) {
           <PrivateRoute exact path={match.path}>
             <Categories
               data={content.categories}
-              isLoading={isLoading}
+              isLoading={content.status === "idle" ? false : true}
               handleCategory={handleCategory}
             />
           </PrivateRoute>
@@ -98,11 +100,10 @@ export default function DashboardRoute({ match }) {
             exact
             path={`${match.path}/:categoryId`}
             comp={PlaylistsRoute}
-            isLoading={isLoading}
           />
           <PrivateRoute
             exact
-            path={`${match.path}/:categoryId/:playlistId`}
+            path={`${match.path}/:categoryId/tracks`}
             comp={TracksRoute}
           />
         </Switch>

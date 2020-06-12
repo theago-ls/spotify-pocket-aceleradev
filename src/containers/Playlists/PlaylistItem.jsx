@@ -1,14 +1,19 @@
 import React from "react";
 
-const PlaylistItem = ({ categoryId, description, id, image, name, path }) => {
-  function handlePlaylist() {
-    console.log(id);
-  }
+const PlaylistItem = ({
+  categoryId,
+  description,
+  id,
+  image,
+  name,
+  path,
+  handlePlaylist,
+}) => {
   return (
     <div className="playlists__item" data-testid="playlist">
       <div
         className="playlists__item__link"
-        onClick={handlePlaylist}
+        onClick={() => handlePlaylist(path)}
         style={{ backgroundImage: `url(${image})` }}
       />
 

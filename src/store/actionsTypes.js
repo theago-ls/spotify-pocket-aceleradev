@@ -6,4 +6,4 @@ export const SET_PLAYLISTS = "SET_PLAYLISTS";
 export const SET_TRACKS = "SET_TRACKS";
 export const SET_PLAYING_ID = "SET_PLAYING_ID";
 export const SET_PLAYING_TRACK = "SET_PLAYING_TRACK";
-export const SET_PLAYER_STATUS = "SET_PLAYER_STATUS";
+export const SET_STATUS = "SET_STATUS";

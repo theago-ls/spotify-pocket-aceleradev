@@ -4,7 +4,7 @@ import {
   SET_TRACKS,
   SET_PLAYING_ID,
   SET_PLAYING_TRACK,
-  SET_PLAYER_STATUS,
+  SET_STATUS,
 } from "../actionsTypes";
 
 export const setCategories = (payload) => ({
@@ -32,7 +32,7 @@ export const setPlayingTrack = (payload) => ({
   payload,
 });
 
-export const setPlayerStatus = (payload) => ({
-  type: SET_PLAYER_STATUS,
+export const setStatus = (payload) => ({
+  type: SET_STATUS,
   payload,
 });
