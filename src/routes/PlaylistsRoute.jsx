@@ -8,7 +8,11 @@ import { RouteHeader } from "../components/index";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import { setStatus, setTracks } from "../store/actions/contentActions";
+import {
+  setStatus,
+  setTracks,
+  setPlayingId,
+} from "../store/actions/contentActions";
 
 import { obterTracks } from "../services/tracksServices";
 
@@ -24,11 +28,14 @@ export default function PlaylistsRoute({ match }) {
   const { accessToken, tokenType } = useSelector((store) => store.authReducer);
 
   async function handlePlaylist(playlistUrl) {
+    const playlist = playlistUrl.split("/");
+    const playlistId = playlist[playlist.length - 2];
     dispatch(setStatus("requested"));
     const tracks = await obterTracks(accessToken, tokenType, playlistUrl);
     if (tracks) {
       dispatch(setTracks(tracks.items));
-      history.push(`${match.url}/tracks`);
+      dispatch(setPlayingId(playlistId));
+      history.push(`${match.url}/${playlistId}`);
     }
     dispatch(setStatus("idle"));
   }

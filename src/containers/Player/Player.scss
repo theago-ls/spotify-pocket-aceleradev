@@ -1,7 +1,11 @@
 .player {
   backface-visibility: hidden;
-  background: linear-gradient(0deg, rgba(6,1,37,1) 0%, rgba(5,23,46,1) 100%);
-  background: rgb(5,23,46);
+  background: linear-gradient(
+    0deg,
+    rgba(6, 1, 37, 1) 0%,
+    rgba(5, 23, 46, 1) 100%
+  );
+  background: rgb(5, 23, 46);
   bottom: 0;
   left: 0;
   position: fixed;
@@ -39,7 +43,7 @@
 
       &:after {
         background-color: #00f387;
-        content: '';
+        content: "";
         height: 10px;
         position: absolute;
         right: 0;
@@ -124,11 +128,15 @@
   &__control {
     -webkit-tap-highlight-color: transparent;
     align-items: center;
-    background: rgb(5,23,46);
-    background: linear-gradient(0deg, rgba(6,1,37,1) 0%, rgba(5,23,46,1) 100%);
+    background: rgb(5, 23, 46);
+    background: linear-gradient(
+      0deg,
+      rgba(6, 1, 37, 1) 0%,
+      rgba(5, 23, 46, 1) 100%
+    );
     border-radius: 50px;
     box-shadow: inset 0 3px 5px 1px rgba(255, 255, 255, 0.05),
-                0 1px 5px 1px rgba(0, 0, 0, 0.3);
+      0 1px 5px 1px rgba(0, 0, 0, 0.3);
     color: white;
     cursor: pointer;
     display: flex;

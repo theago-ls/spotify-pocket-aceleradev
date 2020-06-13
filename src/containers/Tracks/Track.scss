@@ -1,3 +1,8 @@
+.tracks {
+  display: flex;
+  flex-direction: column;
+}
+
 .track {
   -webkit-tap-highlight-color: transparent;
   align-items: center;
@@ -28,6 +33,10 @@
     .track__play__wrapper {
       transform: translateY(-25px);
     }
+
+    .track__play__icon {
+      color: #00f387;
+    }
   }
 
   &__play {
@@ -44,6 +53,7 @@
 
     &__wrapper {
       align-items: center;
+      justify-content: space-between;
       cursor: pointer;
       display: flex;
       flex-direction: column;
@@ -54,6 +64,7 @@
       transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
       transition: all 0.2s;
       width: 100%;
+      height: 50px;
     }
 
     &__icon {

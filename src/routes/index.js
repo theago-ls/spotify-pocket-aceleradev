@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
 import LoginRoute from "./LoginRoute";
 import DashboardRoute from "./DashboardRoute";
@@ -15,6 +20,7 @@ export default function Routes() {
         <Route exact path="/authorize" component={AuthorizeRoute} />
 
         <PrivateRoute path="/dashboard" comp={DashboardRoute} />
+        <Redirect to="/login" path="*" />
       </Switch>
     </Router>
   );

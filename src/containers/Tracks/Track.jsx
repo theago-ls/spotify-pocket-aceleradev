@@ -14,22 +14,23 @@ const Track = ({ track }) => {
   });
 
   function handleTrackClick() {
-    if (!playingNowTrack) dispatch(setPlayingTrack(track.id));
-    else dispatch(setPlayingTrack(null));
+    if (playingNowTrack === track.id) {
+      dispatch(setPlayingTrack(null));
+    } else {
+      dispatch(setPlayingTrack(track.id));
+    }
   }
 
   return (
     <div
       className={playingNowTrack === track.id ? "track is-playing" : "track"}
       data-testid="track"
+      onClick={handleTrackClick}
     >
       <div className="track__play">
-        <div className="track__play__wrapper" onClick={handleTrackClick}>
-          {playingNowTrack === track.id ? (
-            <i className="track__play__icon fas fa-volume-up"></i>
-          ) : (
-            <i className="track__play__icon fas fa-play"></i>
-          )}
+        <div className="track__play__wrapper">
+          <i className="track__play__icon fas fa-play"></i>
+          <i className="track__play__icon fas fa-volume-up"></i>
         </div>
       </div>
 

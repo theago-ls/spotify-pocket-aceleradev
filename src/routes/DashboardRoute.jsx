@@ -103,7 +103,7 @@ export default function DashboardRoute({ match }) {
           />
           <PrivateRoute
             exact
-            path={`${match.path}/:categoryId/tracks`}
+            path={`${match.path}/:categoryId/:playlistId`}
             comp={TracksRoute}
           />
         </Switch>
